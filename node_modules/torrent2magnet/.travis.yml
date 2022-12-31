@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- node
+- '8'
+- '10'
+- '11'
+sudo: false
+cache:
+  directories:
+  - node_modules
+deploy:
+  node_js: 8
+  provider: npm
+  skip_cleanup: true
+  email: honza@hommer.cz
+  api_key:
+    secure: RLqz7zAN5+ZmjJ5eTOqZdTJZ0Skv4O+vwipdlxIW2FcQqZQOOuGKSStCIbpKyf+Fm22lh8QM3vN6RzM40+kHVf1bNw8j2ABqP3J2clWW/wps2ZnmhicPV2IrOmDHUclLu5uyIf8zkvUND3jb+kru9v6NHkxEdamJqnxXlsfx/ZL4NAhB0bimAwfjFf0cO475UGSz7TKv/4nWfh90NuL9LG9qDq4hTu1jRvOXZ9/0vYo/Fa4t3pw55qXyf0bqyQxYqQLtXCj1Yzl/azUXm69AEE+zpWAf+VYioowJ0VG3bNLkkWY06WRsK2NOMl8klxRhZ+jJurV9tInJRsd47QNEmcOscRxgLgWGmDtan3+lE1VwhX5whiXX3LR+yoh9WAw/269coN0c2q8zXpudbiEQBGCf2MK+6GZfHagDVOKSfD/Xl5MugJw+sMrs2gkDs5JCkopH5w7PrRJ7ZlDCK6ooWpyEXwefKkz2y8G4vN/NAkFGvq+Pos6tfMvzqDChjRFQywAAWDxBj94uz9v/h9la2AweCFTDgyySnxxKkxWo6ELHTXyQ1BpjwIiqeX3W8D/Je2nCWZo6Oaf9d8KeKy6gDeenh6y+dCl1ni45Pvi8GR9P+QoPdBlD0pUhz7yzGyhjbyHTCpGN1EhX7uh2oITZMa/KCRUZr65F/HI4BQtS84s=
+  on:
+    tags: true
+    repo: honzahommer/node-torrent2magnet

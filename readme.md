@@ -1,22 +1,62 @@
-# Express.js on Netlify Example
+# Simple Express REST API on Netlify
 
-[![Netlify
-Status](https://api.netlify.com/api/v1/badges/9aaef7de-1e5d-4fda-bc39-faa10a68b35b/deploy-status)](https://app.netlify.com/sites/netlify-express/deploys)
+[![][gh-deploy-image]][gh-deploy-url]
+[![][dependabot-merge-image]][dependabot-merge-url]
 
-[![Deploy to
-Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/neverendingqs/netlify-express)
+[![Netlify Deploy][netlify-deploy-image]][netlify-deploy-url]
+[![Netlify Status][netlify-status-image]][netlify-status-url]
 
-An example of how to host an Express.js app on Netlify using
-[serverless-http](https://github.com/dougmoscrop/serverless-http). See
-[express/server.js](express/server.js) for details, or check it out at
-https://netlify-express.netlify.com/!
+[gh-deploy-image]: https://github.com/dotiful/netlify-express-api/workflows/deploy/badge.svg
+[gh-deploy-url]: https://github.com/dotiful/netlify-express-api/actions?query=workflow%3Adeploy
 
-[index.html](index.html) simply loads html from the Express.js app using
-`<object>`, and the app is hosted at `/.netlify/functions/server`. Examples of
-how to access the Express.js endpoints:
+[dependabot-merge-image]: https://github.com/dotiful/netlify-express-api/workflows/dependabot-auto-merge/badge.svg
+[dependabot-merge-url]: https://github.com/dotiful/netlify-express-api/actions?query=workflow%3Adependabot-auto-merge
+
+[netlify-deploy-image]: https://www.netlify.com/img/deploy/button.svg
+[netlify-deploy-url]: https://app.netlify.com/start/deploy?repository=https://github.com/dotiful/netlify-express-api
+
+[netlify-status-image]: https://api.netlify.com/api/v1/badges/8272d4b2-d2ab-4be8-8c26-e22068202e8a/deploy-status
+[netlify-status-url]: https://app.netlify.com/sites/festive-leavitt-8531bb/deploys
+
+Simple Express REST API on Netlify to convert torrent file to magnet URI
+
+## Features
+
+* Babel 7
+* Environment Variables
+* Express
+* REST API
+
+## Requirements
+
+* [git](https://www.robinwieruch.de/git-essential-commands/)
+* [nodejs](https://nodejs.org/en/)
+
+## Installation
+
+* `git clone git@github.com:dotiful/netlify-express-api.git`
+* `cd netlify-express-api`
+* `npm install`
+* `npm run start`
+* optional: include *.env* in your *.gitignore*
+
+### Examples of how to access the Express.js endpoints
+
+Check API reference at [apiary.io](https://dotiful.docs.apiary.io)
+
+#### CURL
 
 ```sh
-curl https://netlify-express.netlify.com/.netlify/functions/server
-curl https://netlify-express.netlify.com/.netlify/functions/server/another
-curl --header "Content-Type: application/json" --request POST --data '{"json":"POST"}' https://netlify-express.netlify.com/.netlify/functions/server
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"url":"https://mac-torrents.io/wp-content/uploads/2019/06/Visual-Studio-Code-1.35.1.zip.torrent"}' \
+  http://localhost:3000/magnet
 ```
+
+#### Postman
+
+* Install [Postman](https://www.getpostman.com/apps) to interact with REST API
+* Create a magnet URI from a torrent file:
+  * URL: `http://localhost:3000/magnet`
+  * Method: `POST`
+  * Body Content: `url=https://mac-torrents.io/wp-content/uploads/2019/06/Visual-Studio-Code-1.35.1.zip.torrent`
