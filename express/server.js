@@ -13,6 +13,9 @@ let views = path.join(__dirname, '../');
 router.get('/', (req, res) => {
   res.status(201).send({ message: "hello" })
 });
+router.get('/test', (req, res) => {
+  res.status(201).send({ message: "hello" })
+});
 
 // Other routes.
 router.get('/page1', function (req, res) {
