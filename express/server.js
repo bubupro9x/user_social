@@ -113,9 +113,6 @@ app.use(bodyParser.json());
 app.use('/.netlify/functions/server', router);  // path must route to lambda (express/server.js)
 
 
-router.get('/test', function (req, res) {
-  res.status(200).send({ message: 'Success' })
-});
 
 
 module.exports = app;
