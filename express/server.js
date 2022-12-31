@@ -6,6 +6,25 @@ const app = express();
 const bodyParser = require('body-parser');
 const router = express.Router();
 
+//superbase
+
+const { createClient } = require('@supabase/supabase-js');
+const supabase = createClient('db.hbhrnaczdeiwuurxlgqx.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhiaHJuYWN6ZGVpd3V1cnhsZ3F4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzI0Nzc0MjcsImV4cCI6MTk4ODA1MzQyN30.BvjLI7juNfVG-B0i72Bs-p5kalWSYjGOU94DjItMWzo');
+
+exports.handler = async event => {
+
+  // Insert a row
+  const { data, error } = await supabase
+    .from('notes')
+    .insert([
+      { note: 'I need to not forget this' },
+    ]);
+
+  // Did it work?
+  console.log(data, error);
+
+}
+
 // Link to views folder.
 let views = path.join(__dirname, '../');
 
@@ -15,16 +34,16 @@ router.get('/', (req, res) => {
 });
 
 // Other routes.
-router.get('/page1', function(req, res){
+router.get('/page1', function (req, res) {
   res.sendFile('page1.html', { root: views });
 });
-router.get('/page2', function(req, res){
+router.get('/page2', function (req, res) {
   res.sendFile('page2.html', { root: views });
 });
-router.get('/page3', function(req, res){
+router.get('/page3', function (req, res) {
   res.sendFile('page3.html', { root: views });
 });
-router.get('/page4', function(req, res){
+router.get('/page4', function (req, res) {
   res.sendFile('page4.html', { root: views });
 });
 
