@@ -1,7 +1,7 @@
 const md5 = require('md5');
 const UserModel = require('./../user/user.model.js');
 const ValidatorUtils = require('../../utils/validator');
-const {BadRequestError} = require('../../utils/erros.model.js');
+const { BadRequestError } = require('../../utils/erros.model.js');
 
 class AuthService {
   static async registrationValidator(req, res, next) {

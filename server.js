@@ -1,5 +1,6 @@
 const express = require('express');
-// const expressValidator = require('express-validator');
+const expressValidator = require('express-validator');
+
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -9,7 +10,7 @@ const app = express();
 
 app.use('/doc', express.static('./doc'));
 db.sync();
-// app.use(expressValidator());
+app.use(expressValidator());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
