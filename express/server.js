@@ -10,26 +10,26 @@ const router = express.Router();
 let views = path.join(__dirname, '../');
 
 // Home route.
-router.get('/', (req, res) => {
-  res.status(201).send({ message: "hello" })
-});
+// router.get('/', (req, res) => {
+//   res.status(201).send({ message: "hello" })
+// });
 app.get('/test', (req, res) => {
   res.status(201).send({ message: "hello" })
 });
 
 // Other routes.
-router.get('/page1', function (req, res) {
-  res.sendFile('page1.html', { root: views });
-});
-router.get('/page2', function (req, res) {
-  res.sendFile('page1.html', { root: views });
-});
-router.get('/page3', function (req, res) {
-  res.sendFile('page1.html', { root: views });
-});
-router.get('/page4', function (req, res) {
-  res.sendFile('page1.html', { root: views });
-});
+// router.get('/page1', function (req, res) {
+//   res.sendFile('page1.html', { root: views });
+// });
+// router.get('/page2', function (req, res) {
+//   res.sendFile('page1.html', { root: views });
+// });
+// router.get('/page3', function (req, res) {
+//   res.sendFile('page1.html', { root: views });
+// });
+// router.get('/page4', function (req, res) {
+//   res.sendFile('page1.html', { root: views });
+// });
 
 
 app.use(bodyParser.json());
