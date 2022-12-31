@@ -13,7 +13,7 @@ let views = path.join(__dirname, '../');
 router.get('/', (req, res) => {
   res.status(201).send({ message: "hello" })
 });
-router.get('/test', (req, res) => {
+app.get('/test', (req, res) => {
   res.status(201).send({ message: "hello" })
 });
 
@@ -22,13 +22,13 @@ router.get('/page1', function (req, res) {
   res.sendFile('page1.html', { root: views });
 });
 router.get('/page2', function (req, res) {
-  res.sendFile('page2.html', { root: views });
+  res.sendFile('page1.html', { root: views });
 });
 router.get('/page3', function (req, res) {
-  res.sendFile('page3.html', { root: views });
+  res.sendFile('page1.html', { root: views });
 });
 router.get('/page4', function (req, res) {
-  res.sendFile('page4.html', { root: views });
+  res.sendFile('page1.html', { root: views });
 });
 
 
