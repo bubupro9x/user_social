@@ -24,7 +24,8 @@
   "homepage": "https://github.com/king-melchizedek/Netlify-Express#readme",
   "dependencies": {
     "pug": "^2.0.4",
-    "pug-cli": "^1.0.0-alpha6"
+    "pug-cli": "^1.0.0-alpha6",
+    "webpack-node-externals": "^3.0.0"
   },
   "devDependencies": {
     "body-parser": "^1.18.3",
