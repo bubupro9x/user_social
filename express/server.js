@@ -51,9 +51,9 @@ app.post('/login', (req, res) => {
   // });
 });
 
-// app.get('/test', checkJwt, (req, res) => {
-//   res.status(200).send({ message: 'Success' });
-// })
+app.get('/test', (req, res) => {
+  res.status(200).send({ message: 'Success' });
+})
 
 // // create a logout route
 // app.post('/logout', checkJwt, (req, res) => {
