@@ -1,51 +1,37 @@
 {
-  "name": "football",
-  "version": "1.0.0",
-  "main": "server.js",
-  "repository": {},
-  "license": "Jelvix Team",
+  "name": "Netlify-Express",
+  "version": "0.0.1",
+  "description": "Example of how to deploy an Express.js Netlify app.",
+  "main": "functions/server.js",
   "scripts": {
-    "start": "better-npm-run build:dev",
-    "build:stage": "better-npm-run build:stage",
-    "build:prod": "better-npm-run build:prod",
-    "doc": "apidoc -i components/"
+    "build": "netlify-lambda build express",
+    "start": "node server-local.js",
+    "pug": "node node_modules/pug-cli/index.js views/ --out ./"
   },
-  "betterScripts": {
-    "build:dev": {
-      "command": "node server.js",
-      "env": {
-        "mode": "dev",
-        "port": 3000,
-        "secret": "sdklfui4ew6r347y34b"
-      }
-    },
-    "build:stage": {
-      "command": "./start-server.sh",
-      "env": {
-        "mode": "stage",
-        "port": 4001,
-        "secret": "sdklfui4ew6r347y34b"
-      }
-    },
-    "build:prod": {
-      "command": "sudo pm2 start server.js",
-      "env": {
-        "mode": "prod",
-        "port": 80,
-        "secret": "dfsdmf348y345h34"
-      }
-    }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/king-melchizedek/Netlify-Express.git"
   },
+  "keywords": [
+    "netlify",
+    "express.js"
+  ],
+  "author": "Ethan Miller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/king-melchizedek/Netlify-Express/issues"
+  },
+  "homepage": "https://github.com/king-melchizedek/Netlify-Express#readme",
   "dependencies": {
-    "apidoc": "^0.53.1",
-    "better-npm-run": "^0.0.15",
-    "body-parser": "^1.17.1",
-    "cors": "^2.8.3",
-    "express": "^4.15.2",
-    "express-validator": "5.3.1",
-    "jsonwebtoken": "^9.0.0",
-    "md5": "^2.2.1",
-    "pg": "^6.1.5",
-    "sequelize": "^6.28.0"
+    "pug": "^2.0.4",
+    "pug-cli": "^1.0.0-alpha6"
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "netlify-lambda": "^0.4.0",
+    "pug": "^2.0.4",
+    "pug-cli": "^1.0.0-alpha6",
+    "serverless-http": "^1.6.0"
   }
 }
