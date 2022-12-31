@@ -11,20 +11,20 @@ let views = path.join(__dirname, '../');
 
 // Home route.
 router.get('/', (req, res) => {
-  res.sendFile('index.html', { root: views });
+  res.status(201).send({ message: "hello" })
 });
 
 // Other routes.
-router.get('/page1', function(req, res){
+router.get('/page1', function (req, res) {
   res.sendFile('page1.html', { root: views });
 });
-router.get('/page2', function(req, res){
+router.get('/page2', function (req, res) {
   res.sendFile('page2.html', { root: views });
 });
-router.get('/page3', function(req, res){
+router.get('/page3', function (req, res) {
   res.sendFile('page3.html', { root: views });
 });
-router.get('/page4', function(req, res){
+router.get('/page4', function (req, res) {
   res.sendFile('page4.html', { root: views });
 });
 
