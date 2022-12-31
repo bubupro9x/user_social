@@ -4,18 +4,20 @@ const path = require('path');
 const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
+const { createClient } = require('@supabase/supabase-js');
+const supabase = createClient('https://hbhrnaczdeiwuurxlgqx.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhiaHJuYWN6ZGVpd3V1cnhsZ3F4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzI0Nzc0MjcsImV4cCI6MTk4ODA1MzQyN30.BvjLI7juNfVG-B0i72Bs-p5kalWSYjGOU94DjItMWzo');
+
 
 
 app.get('/', (req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  res.write('<h1>Hello from Express.js!</h1>');
-  res.end();
+  res.status(201).send({ message: "hello world" })
 });
 
 
 app.use(bodyParser.json());
-app.use('/.netlify/functions/server', router);  // path must route to lambda
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+
+
 
 module.exports = app;
 module.exports.handler = serverless(app);
